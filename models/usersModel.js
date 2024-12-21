@@ -13,8 +13,12 @@ mongoose
   });
 
 const usersSchema = new Schema({
-  userName: { type: String, required: true, unique: true },
-  name: { type: String, required: true },
+  userName: {
+    type: String,
+    required: [true, "Username is required"],
+    unique: true,
+  },
+  name: { type: String, required: [true, "Name is required"] },
   age: { type: Number },
   email: { type: String, required: true, unique: true },
 });
